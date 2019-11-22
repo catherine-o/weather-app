@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>{{ currentTemp }}</h1>
-        <h1>{{ weather }}</h1>
+        <h1>{{ weatherConditions }}</h1>
     </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
     data() {
         return {
             currentTemp: 'Temperature in F',
-            weather: 'Weather Conditions'
+            weatherConditions: 'Weather Conditions'
         }
     },
     mounted() {
@@ -22,7 +22,15 @@ export default {
     }, 
     methods: {
         updateWeather(data) {
-            window.console.log(data)
+            let kelvinTemp = data.main.temp
+            this.currentTemp = this.convertToFarenheit(kelvinTemp)
+            this.weatherConditions = data.weather[0].description
+        },
+        convertToFarenheit(temp) {
+            //Kelvin to Farenheit 
+            //° F = 9/5 (K - 273) + 32
+            let farenheit = (9/5)*(+temp - 273) + 32
+            return farenheit.toFixed(1)
         }
     }
 }
