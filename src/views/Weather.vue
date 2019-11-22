@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <h1>{{ currentTemp }}</h1>
-        <h1>{{ weatherConditions }}</h1>
+    <div class='weather'>
+        <p class='details'>{{ currentTemp }}</p>
+        <p class='details'>{{ weatherConditions }}</p>
     </div>
 </template>
 
@@ -16,7 +16,6 @@ export default {
         }
     },
     mounted() {
-        this.checkConnection()
         fetch(URL + WEATHER_KEY)
             .then(response => response.json())
             .then(this.updateWeather)
@@ -32,14 +31,22 @@ export default {
             //° F = 9/5 (K - 273) + 32
             let farenheit = (9/5)*(+temp - 273) + 32
             return farenheit.toFixed(1) + '°F'
-        },
-        checkConnection() {
-            window.console.log(window.navigator.onLine)
         }
     }
 }
 </script>
 
 <style lang="scss">
-
+.weather {
+    width: 50%;
+    margin: auto;
+    border: 0.5px solid rgb(125, 217, 240);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    .details {
+        font-size: 30px;
+    }
+}
 </style>
