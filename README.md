@@ -1,29 +1,23 @@
-# weather-app
+# Weather App
+>For zipcode 80202
 
-## Project setup
-```
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+
+## General Info
+A Single Page App (SPA) that displays the current weather for a location (currently zipcode 80202). A user will also receive an error message if there is no internet connection and the data cannot be retrieved.
+
+## Technologies
+* Vue.js
+* Open Weather Map API
+
+## Setup
+Clone project down locally and run:
+
+```javascript
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Then navigate to localhost:8080 in your browser (or otherwise noted)
