@@ -47,7 +47,7 @@ export default {
     flex-flow: row wrap;
     .details {
         font-size: 30px;
-        padding: 10px;
+        padding: 15px;
     }
 }
 </style>
