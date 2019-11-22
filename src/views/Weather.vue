@@ -41,8 +41,8 @@ export default {
     width: 80%;
     margin: auto;
     display: flex;
-    justify-content: space-evenly;
     flex-flow: row wrap;
+    justify-content: space-evenly;
     border: 0.5px solid rgb(125, 217, 240);
     border-radius: 5px;
     @media only screen and (min-width: 950px){
@@ -53,10 +53,10 @@ export default {
     }
     .details {
         font-size: 45px;
-        padding: 15px;
-        @media only screen and (min-width: 600px){
+        padding: 10px;
+        @media only screen and (min-width: 550px){
             font-size: 35px;
-            padding: 15px;
+            padding: 5px;
         }
     }
 }

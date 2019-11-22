@@ -17,7 +17,7 @@
   width: 100vw;
   margin: -40px -8px;
   h1 {
-    padding-top: 15%;
+    padding-top: 10%;
     font-size: 60px;
   }
 }
