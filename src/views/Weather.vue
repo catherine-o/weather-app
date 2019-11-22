@@ -11,11 +11,12 @@ const WEATHER_KEY = 'bbaf3bdf18579f92c6e14825f5c839bb'
 export default {
     data() {
         return {
-            currentTemp: 'Temperature in F',
-            weatherConditions: 'Weather Conditions'
+            currentTemp: 'No Internet Connection',
+            weatherConditions: 'Please try again',
         }
     },
     mounted() {
+        this.checkConnection()
         fetch(URL + WEATHER_KEY)
             .then(response => response.json())
             .then(this.updateWeather)
@@ -30,7 +31,10 @@ export default {
             //Kelvin to Farenheit 
             //° F = 9/5 (K - 273) + 32
             let farenheit = (9/5)*(+temp - 273) + 32
-            return farenheit.toFixed(1)
+            return farenheit.toFixed(1) + '°F'
+        },
+        checkConnection() {
+            window.console.log(window.navigator.onLine)
         }
     }
 }
