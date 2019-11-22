@@ -6,7 +6,7 @@
 </template>
 
 <script>
-const URL = 'http://api.openweathermap.org/data/2.5/weather?zip=80202,us'
+const URL = 'https://api.openweathermap.org/data/2.5/weather?zip=80202,us'
 const units = '&units=imperial' //to grab temperature in Farenheit
 const WEATHER_KEY = '&APPID=bbaf3bdf18579f92c6e14825f5c839bb'
 export default {
