@@ -38,16 +38,26 @@ export default {
 
 <style lang="scss">
 .weather {
-    width: 50%;
+    width: 80%;
     margin: auto;
-    border: 0.5px solid rgb(125, 217, 240);
-    border-radius: 5px;
     display: flex;
     justify-content: space-evenly;
     flex-flow: row wrap;
+    border: 0.5px solid rgb(125, 217, 240);
+    border-radius: 5px;
+    @media only screen and (min-width: 950px){
+        width: 65%;
+    }
+    @media only screen and (min-width: 1250px){
+        width: 50%;
+    }
     .details {
-        font-size: 30px;
+        font-size: 45px;
         padding: 15px;
+        @media only screen and (min-width: 600px){
+            font-size: 35px;
+            padding: 15px;
+        }
     }
 }
 </style>
