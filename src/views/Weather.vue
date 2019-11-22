@@ -6,8 +6,9 @@
 </template>
 
 <script>
-const URL = 'http://api.openweathermap.org/data/2.5/weather?zip=80202,us&APPID='
-const WEATHER_KEY = 'bbaf3bdf18579f92c6e14825f5c839bb'
+const URL = 'http://api.openweathermap.org/data/2.5/weather?zip=80202,us'
+const units = '&units=imperial' //to grab temperature in Farenheit
+const WEATHER_KEY = '&APPID=bbaf3bdf18579f92c6e14825f5c839bb'
 export default {
     data() {
         return {
@@ -16,22 +17,16 @@ export default {
         }
     },
     mounted() {
-        fetch(URL + WEATHER_KEY)
+        fetch(URL + units + WEATHER_KEY)
             .then(response => response.json())
             .then(this.updateWeather)
             .catch(this.displayError)
     }, 
     methods: {
         updateWeather(data) {
-            let kelvinTemp = data.main.temp
-            this.currentTemp = this.convertToFarenheit(kelvinTemp)
+            let temperature = data.main.temp.toFixed(1)
+            this.currentTemp = temperature + '°F'
             this.weatherConditions = data.weather[0].description
-        },
-        convertToFarenheit(temp) {
-            //Kelvin to Farenheit 
-            //° F = 9/5 (K - 273) + 32
-            let farenheit = (9/5)*(+temp - 273) + 32
-            return farenheit.toFixed(1) + '°F'
         },
         displayError() {
             this.currentTemp = 'No Internet Connection'
